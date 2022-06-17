@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AcademyDataLayer.Entities.Course.CourseGroup>
+@{
+    Layout = null;
+}
+
+<div class="main-menu">
+    <div class="container">
+        <nav>
+            <span class="responsive-sign"><i class="zmdi zmdi-menu"></i></span>
+            <ul>
+                @foreach (var group in Model.Where(g => g.ParentID == null))
+                {
+                    <li>
+                        <a href="/Course?selectedGroups=@group.GroupId"> @group.GroupTitle </a>
+
+                        @if (Model.Any(g => g.ParentID == group.GroupId))
+                        {
+                            <ul>
+                                @foreach (var Subgroup in Model.Where(g => g.ParentID == group.GroupId))
+                                {
+                                <li><a href="/Course?selectedGroups=@Subgroup.GroupId"> @Subgroup.GroupTitle </a></li>
+                                }
+                            </ul>
+                        }
+
+
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>

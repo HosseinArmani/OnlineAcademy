@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Academy.Core.ViewModels.ShowCourseListItemViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section SearchBox
+{
+    <div class="search-form">
+        <form>
+            <input type="text" name="" placeholder="جستجو">
+            <button><i class="zmdi zmdi-search"></i></button>
+        </form>
+    </div>
+}
+<main id="home-page">
+    <div class="container">
+        <section class="terms-items">
+            <header>
+                <h2> آخرین دوره ها </h2>
+              
+            </header>
+            <div class="row">
+                <!-- col -->
+                @foreach (var item in Model)
+                {
+                    <partial name="_BoxCourse" model="@item"/>
+                }
+                <!-- /col -->
+                <!-- col -->
+             
+                <!-- /col -->
+            </div>
+        </section>
+
+        <hr>
+
+       
+    </div>
+</main>

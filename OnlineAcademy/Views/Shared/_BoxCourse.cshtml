@@ -1,0 +1,17 @@
+﻿@model Academy.Core.ViewModels.ShowCourseListItemViewModel
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 term-col">
+    <article>
+        <a href="/ShowCourse/@Model.CourseId" class="img-layer"><img style="height:150px" src="/ImageCourse/Thumb/@Model.ImageName"></a>
+        <h2><a href="/ShowCourse/@Model.CourseId"> @Model.Title </a></h2>
+        @if (Model.Price == 0)
+        {
+            <span>رایگان</span>
+        }
+        else
+        {
+            <span>@Model.Price.ToString("#,0") تومان</span>
+        }
+        <i>@Model.TotalTime</i>
+    </article>
+</div>
